@@ -23,7 +23,7 @@ This action deploy content on [zCloud](https://www.zcloud.ws) platform
 ## Example usage
 
 ```yaml
-uses: actions/zcloud-deploy-action@v1
+uses: zcloud-ws/zcloud-deploy-action@main
 with:
   user-token: USER_TOKEN
   env: ENV_NAME
