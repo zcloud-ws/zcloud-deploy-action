@@ -1,0 +1,28 @@
+name: zCloud Deploy
+author: zCloud <support@zcloud.ws>
+description: GitHub action to deploy content on zCloud platform.
+branding:
+  icon: image
+  color: green
+inputs:
+  user-token:
+    description: 'Token to identify user application'
+    required: true
+  env:
+    description: 'Environment name to create or update'
+    required: true
+  dir:
+    description: 'Directory usage as source code to send to deploy (Optional, default value is current dir)'
+    required: false
+  extra-args:
+    description: 'Extra arguments to pass to CLI.'
+    required: false
+runs:
+  using: 'docker'
+  image: zcloudws/zcloud-cli:v1.0.3
+  env:
+    ZCLOUD_USER_TOKEN: ${{ inputs.user-token }}
+    ZCLOUD_ENV_NAME: ${{ inputs.env }}
+    ZCLOUD_SRC_DIR: ${{ inputs.dir }}
+  args:
+    - ${{ inputs.extra-args }}
