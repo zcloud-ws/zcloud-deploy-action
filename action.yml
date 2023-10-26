@@ -2,7 +2,7 @@ name: zCloud Deploy
 author: zCloud <support@zcloud.ws>
 description: GitHub action to deploy content on zCloud platform.
 branding:
-  icon: image
+  icon: upload-cloud
   color: green
 inputs:
   user-token:
