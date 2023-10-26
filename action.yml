@@ -14,6 +14,7 @@ inputs:
   dir:
     description: 'Directory usage as source code to send to deploy (Optional, default value is current dir)'
     required: false
+    default: ""
   extra-args:
     description: 'Extra arguments to pass to CLI.'
     required: false
@@ -27,4 +28,4 @@ runs:
   entrypoint: sh
   args:
     - -c
-    - 'zcloud deploy ${{ inputs.extra-args }}'
+    - 'zcloud deploy --dir "${{ inputs.dir }}" ${{ inputs.extra-args }}'
