@@ -20,7 +20,7 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: docker://zcloudws/zcloud-cli:v1.0.3
+  image: docker://zcloudws/zcloud-cli:v1.0.4
   env:
     ZCLOUD_USER_TOKEN: ${{ inputs.user-token }}
     ZCLOUD_ENV_NAME: ${{ inputs.env }}
@@ -28,4 +28,4 @@ runs:
   entrypoint: sh
   args:
     - -c
-    - 'zcloud deploy --dir "${{ inputs.dir }}" ${{ inputs.cli-extra-args }}'
+    - 'zcloud deploy ${{ inputs.cli-extra-args }}'
