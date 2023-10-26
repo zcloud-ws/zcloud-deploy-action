@@ -24,7 +24,7 @@ runs:
     ZCLOUD_USER_TOKEN: ${{ inputs.user-token }}
     ZCLOUD_ENV_NAME: ${{ inputs.env }}
     ZCLOUD_SRC_DIR: ${{ inputs.dir }}
-  entrypoint: zcloud
+  entrypoint: sh
   args:
-    - deploy
-    - ${{ inputs.extra-args }}
+    - -c
+    - 'zcloud deploy ${{ inputs.extra-args }}'
