@@ -6,8 +6,11 @@ branding:
   color: green
 inputs:
   user-token:
-    description: 'Token to identify user application'
-    required: true
+    description: 'Token to authenticate the user'
+    required: false
+  env-token:
+    description: 'Token to authenticate the app environment'
+    required: false
   env:
     description: 'Environment name to create or update'
     required: true
@@ -20,9 +23,10 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: docker://zcloudws/zcloud-cli:v1.0.4
+  image: docker://zcloudws/zcloud-cli:v1.0.5
   env:
     ZCLOUD_USER_TOKEN: ${{ inputs.user-token }}
+    ZCLOUD_ENV_TOKEN: ${{ inputs.env-token }}
     ZCLOUD_ENV_NAME: ${{ inputs.env }}
     ZCLOUD_SRC_DIR: ${{ inputs.dir }}
   entrypoint: sh
