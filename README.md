@@ -6,7 +6,11 @@ This action deploy content on [zCloud](https://www.zcloud.ws) platform
 
 ## `user-token`
 
-**Required** Token to identify user application.
+**Optional** Token to authenticate the user.
+
+## `env-token`
+
+**Optional** Token to authenticate the app environment.
 
 ## `env`
 
