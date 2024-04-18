@@ -18,17 +18,32 @@ inputs:
     description: 'Directory usage as source code to send to deploy (Optional, default value is current dir)'
     required: false
     default: ""
+  image:
+    description: 'Image name to deploy'
+    required: false
+    default: ""
+  app:
+    description: 'Name of the app in which the environment will be created or updated (requires usage together with the --create argument)'
+    required: false
+    default: ""
+  copy-env-vars-from:
+    description: 'Name of the environment from which the env vars will be copied to the new environment (requires usage together with the --create argument)'
+    required: false
+    default: ""
   cli-extra-args:
     description: 'CLI extra arguments.'
     required: false
 runs:
   using: 'docker'
-  image: docker://zcloudws/zcloud-cli:v1.0.15
+  image: docker://zcloudws/zcloud-cli:v1.0.16
   env:
     ZCLOUD_USER_TOKEN: ${{ inputs.user-token }}
     ZCLOUD_ENV_TOKEN: ${{ inputs.env-token }}
     ZCLOUD_ENV_NAME: ${{ inputs.env }}
     ZCLOUD_SRC_DIR: ${{ inputs.dir }}
+    ZCLOUD_IMAGE: ${{ inputs.image }}
+    ZCLOUD_APP_SLUG: ${{ inputs.app }}
+    ZCLOUD_COPY_ENV_VARS_FROM: ${{ inputs.copy-env-vars-from }}
   entrypoint: sh
   args:
     - -c
